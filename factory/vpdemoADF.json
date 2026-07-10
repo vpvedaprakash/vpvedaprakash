@@ -1,0 +1,15 @@
+{
+	"name": "vpdemoADF",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5207bb00-6b2f-4fc1-89b6-ea36122cd372",
+		"tenantId": "4809cadc-0ecc-426d-bea5-573746acdf37"
+	}
+}
