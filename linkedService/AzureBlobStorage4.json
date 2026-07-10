@@ -1,0 +1,11 @@
+{
+	"name": "AzureBlobStorage4",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"containerUri": "https://vpdemostorage2.blob.core.windows.net/csvinput",
+			"authenticationType": "Anonymous"
+		}
+	}
+}
