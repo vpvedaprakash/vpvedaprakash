@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "LKUP_SQLTABLE_WATERMRK DW",
+				"name": "LKUP_SQLTABLE_WATERMRK_DW",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -36,7 +36,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "LKUP_SQLTABLE_WATERMRK DW",
+						"activity": "LKUP_SQLTABLE_WATERMRK_DW",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -45,7 +45,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('LKUP_SQLTABLE_WATERMRK DW').output.value",
+						"value": "@activity('LKUP_SQLTABLE_WATERMRK_DW').output.value",
 						"type": "Expression"
 					},
 					"activities": [
@@ -56,13 +56,30 @@
 							"policy": {
 								"secureInput": false
 							},
-							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
 									"referenceName": "PL_CHILD_PIPELINE",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"TableName": {
+										"value": "@item().TableName",
+										"type": "Expression"
+									},
+									"TableSchema": {
+										"value": "@item().TableSchema",
+										"type": "Expression"
+									},
+									"WatermarkColumn": {
+										"value": "@item().WatermarkColumn",
+										"type": "Expression"
+									},
+									"LastLoadValue": {
+										"value": "@item().LastLoadValue",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
