@@ -1,0 +1,22 @@
+{
+	"name": "DS_SQL_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DS_SQL_PARQUET",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Table_name": "@pipeline().parameters.TableName"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "retaildw"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
