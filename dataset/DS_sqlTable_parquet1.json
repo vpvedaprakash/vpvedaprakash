@@ -5,15 +5,16 @@
 			"referenceName": "ADLS_SQL_PARQUET",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Table_Name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": {
-					"value": "@concat(dataset().Table_Name,'/',formatDateTime(utcNow(),'yyyy/MM/dd’))",
-					"type": "Expression"
-				},
 				"fileSystem": {
 					"value": "Retaildw",
 					"type": "Expression"
