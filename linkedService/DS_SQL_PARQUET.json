@@ -2,11 +2,17 @@
 	"name": "DS_SQL_PARQUET",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"Table_name": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.TableName"
+			}
+		},
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
 			"url": "https://migrstorage.dfs.core.windows.net/",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDAxMDI1MDcwLTBEQjQtNEY0Ni05RDYzLUNEOUY3NTg0REFDQ18xOGRkZjIxNC05MTY3LTQ4ZTAtODg2Zi1iMjRjNDkzNjY4NGMiDQp9"
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDAxMDI1MDcwLTBEQjQtNEY0Ni05RDYzLUNEOUY3NTg0REFDQ18yNjA2N2YwMi01MDk2LTRhMzMtYTdkNy0wNzZjZWRkMGU4MDYiDQp9"
 		}
 	}
 }
