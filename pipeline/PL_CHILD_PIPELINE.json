@@ -31,6 +31,10 @@
 							"tablename": {
 								"value": "@pipeline().parameters.TableName",
 								"type": "Expression"
+							},
+							"schemaname": {
+								"value": "@pipeline().parameters.TableSchema",
+								"type": "Expression"
 							}
 						}
 					},
