@@ -11,14 +11,6 @@
 			},
 			"TableSchema": {
 				"type": "string"
-			},
-			"WatermarkColumn": {
-				"type": "string",
-				"defaultValue": "@item().WatermarkColumn"
-			},
-			"LastLoadValue": {
-				"type": "string",
-				"defaultValue": " @item().LastLoadValue"
 			}
 		},
 		"annotations": [],
