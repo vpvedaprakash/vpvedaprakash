@@ -61,7 +61,7 @@
 					},
 					"ifTrueActivities": [
 						{
-							"name": "CopySQL_FULL_INCREMNETAL",
+							"name": "Copy_SQL_FULL_INCREMNETAL_LOAD",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -75,6 +75,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
+									"sqlReaderQuery": {
+										"value": "@concat(\n    'SELECT * FROM ',\n    pipeline().parameters.TableSchema, '.', pipeline().parameters.TableName,\n    if(\n        equals(pipeline().parameters.LastLoadValue, null),\n        '', \n        concat(\n            ' WHERE ', pipeline().parameters.WatermarkColumn,\n            ' > ''', pipeline().parameters.LastLoadValue, ''''\n        )\n    )\n)",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
@@ -116,7 +120,13 @@
 							"outputs": [
 								{
 									"referenceName": "DS_sqlTable_parquet1",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"Table_Name": {
+											"value": "@pipeline().parameters.TableName",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						},
@@ -125,7 +135,7 @@
 							"type": "ExecutePipeline",
 							"dependsOn": [
 								{
-									"activity": "CopySQL_FULL_INCREMNETAL",
+									"activity": "Copy_SQL_FULL_INCREMNETAL_LOAD",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -136,7 +146,25 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"waitOnCompletion": true
+								"pipeline": {
+									"referenceName": "Child Pipeline StoreProcedure",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"TableName": {
+										"value": "@pipeline().parameters.TableName",
+										"type": "Expression"
+									},
+									"TableSchema": {
+										"value": "@pipeline().parameters.TableSchema",
+										"type": "Expression"
+									},
+									"WatermarkColumn": {
+										"value": "@pipeline().parameters.WatermarkColumn",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
@@ -144,12 +172,6 @@
 			}
 		],
 		"parameters": {
-			"schemaname": {
-				"type": "String"
-			},
-			"schema": {
-				"type": "String"
-			},
 			"TableName": {
 				"type": "String"
 			},
