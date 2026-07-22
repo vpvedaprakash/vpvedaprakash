@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Stored procedure1",
+				"name": "SP_UPLT_WATERMRK",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [],
 				"policy": {
@@ -13,9 +13,48 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [
+					{
+						"name": "TableName"
+					}
+				],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[UpdateWatermark]",
+					"storedProcedureParameters": {
+						"TableName": {
+							"value": {
+								"value": "@pipeline().parameters.TableName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"TableSchema": {
+							"value": "@pipeline().parameters.TableSchema",
+							"type": "String"
+						},
+						"WatermarkColumn": {
+							"value": "@pipeline().parameters.WatermarkColumn",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_ONPrem_SqlServer_DW",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			},
+			"TableSchema": {
+				"type": "string"
+			},
+			"WatermarkColumn": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }

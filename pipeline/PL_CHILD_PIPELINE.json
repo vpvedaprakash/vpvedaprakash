@@ -31,18 +31,6 @@
 							"tablename": {
 								"value": "@pipeline().parameters.TableName",
 								"type": "Expression"
-							},
-							"TableSchema": {
-								"value": "@pipeline().parameters.TableSchema",
-								"type": "Expression"
-							},
-							"WatermarkColumn": {
-								"value": "@pipeline().parameters.WatermarkColumn",
-								"type": "Expression"
-							},
-							"LastLoadValue": {
-								"value": "@pipeline().parameters.LastLoadValue",
-								"type": "Expression"
 							}
 						}
 					},
@@ -144,10 +132,6 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"pipeline": {
-									"referenceName": "Child Pipeline StoreProcedure",
-									"type": "PipelineReference"
-								},
 								"waitOnCompletion": true
 							}
 						}
