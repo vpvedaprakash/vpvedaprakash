@@ -1,55 +1,6 @@
 {
 	"name": "Child Pipeline StoreProcedure",
 	"properties": {
-		"activities": [
-			{
-				"name": "SP_UPLT_WATERMRK",
-				"type": "SqlServerStoredProcedure",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [
-					{
-						"name": "TableName"
-					}
-				],
-				"typeProperties": {
-					"storedProcedureName": "[dbo].[UpdateWatermark]",
-					"storedProcedureParameters": {
-						"TableName": {
-							"value": {
-								"value": "@pipeline().parameters.TableName",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"TableSchema": {
-							"value": {
-								"value": "@pipeline().parameters.TableSchema",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"WatermarkColumn": {
-							"value": {
-								"value": "@pipeline().parameters.WatermarkColumn",
-								"type": "Expression"
-							},
-							"type": "String"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "LS_ONPrem_SqlServer_DW",
-					"type": "LinkedServiceReference"
-				}
-			}
-		],
 		"parameters": {
 			"TableName": {
 				"type": "string"
