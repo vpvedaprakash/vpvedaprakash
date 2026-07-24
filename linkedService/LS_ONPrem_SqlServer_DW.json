@@ -2,20 +2,6 @@
 	"name": "LS_ONPrem_SqlServer_DW",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
-		"parameters": {
-			"TableName": {
-				"type": "string"
-			},
-			"TableSchema": {
-				"type": "string"
-			},
-			"WaterMarkColumn": {
-				"type": "string"
-			},
-			"LastLoadValue": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
@@ -25,7 +11,7 @@
 			"trustServerCertificate": false,
 			"authenticationType": "SQL",
 			"userName": "sa",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1NTY3YjhlNS03N2NiLTQ4ZTAtYTJlYy1mNThmZjEzMmQ4YTIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlODg1ZWYwYi1jMzkyLTRkZjgtYjM4Zi1hOTc4MDNjZjQ1YzEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "selfhosted",
