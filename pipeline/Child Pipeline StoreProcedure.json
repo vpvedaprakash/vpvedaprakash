@@ -52,16 +52,16 @@
 		],
 		"parameters": {
 			"TableName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.TableName"
 			},
 			"TableSchema": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.TableSchema"
 			},
 			"WatermarkColumn": {
-				"type": "string"
-			},
-			"LastLoadValue": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.WatermarkColumn"
 			}
 		},
 		"annotations": []
