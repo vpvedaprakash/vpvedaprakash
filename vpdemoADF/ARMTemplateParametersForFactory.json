@@ -1,0 +1,114 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "vpdemoADF"
+		},
+		"ADLS_SQL_PARQUET_accountKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage3_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage4_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"DS_LKUP_MAX_VALUE_password": {
+			"value": ""
+		},
+		"DS_SQL_PARQUET_accountKey": {
+			"value": ""
+		},
+		"DS_sqlTable_parquet1_password": {
+			"value": ""
+		},
+		"LS_ONPrem_SqlServer_DW_password": {
+			"value": ""
+		},
+		"LS_SQLLKUP_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"ls_txt_adls_connectionString": {
+			"value": ""
+		},
+		"ls_txt_adls2_accountKey": {
+			"value": ""
+		},
+		"ADLS_SQL_PARQUET_properties_typeProperties_url": {
+			"value": "https://migrstorage.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://vpdemostorage1.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://vpdemostorage1.dfs.core.windows.net/"
+		},
+		"DS_LKUP_MAX_VALUE_properties_typeProperties_server": {
+			"value": "LAPTOP-T388H18U"
+		},
+		"DS_LKUP_MAX_VALUE_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"DS_LKUP_MAX_VALUE_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"DS_SQL_PARQUET_properties_typeProperties_url": {
+			"value": "https://migrstorage.dfs.core.windows.net/"
+		},
+		"DS_sqlTable_parquet1_properties_typeProperties_server": {
+			"value": "LAPTOP-T388H18U"
+		},
+		"DS_sqlTable_parquet1_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"DS_sqlTable_parquet1_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"LS_ONPrem_SqlServer_DW_properties_typeProperties_server": {
+			"value": "LAPTOP-T388H18U"
+		},
+		"LS_ONPrem_SqlServer_DW_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_ONPrem_SqlServer_DW_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"LS_SQLLKUP_properties_typeProperties_server": {
+			"value": "LAPTOP-T388H18U"
+		},
+		"LS_SQLLKUP_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_SQLLKUP_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "LAPTOP-T388H18U"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"ls_txt_adls2_properties_typeProperties_url": {
+			"value": "https://vpdemostorage1.dfs.core.windows.net/"
+		}
+	}
+}

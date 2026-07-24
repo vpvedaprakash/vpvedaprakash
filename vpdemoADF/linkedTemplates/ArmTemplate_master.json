@@ -1,0 +1,307 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "vpdemoADF"
+		},
+		"ADLS_SQL_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_SQL_PARQUET'"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"AzureBlobStorage3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage3'"
+		},
+		"AzureBlobStorage4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage4'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"DS_LKUP_MAX_VALUE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'DS_LKUP_MAX_VALUE'"
+		},
+		"DS_SQL_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DS_SQL_PARQUET'"
+		},
+		"DS_sqlTable_parquet1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'DS_sqlTable_parquet1'"
+		},
+		"LS_ONPrem_SqlServer_DW_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPrem_SqlServer_DW'"
+		},
+		"LS_SQLLKUP_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLLKUP'"
+		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
+		"ls_txt_adls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_txt_adls'"
+		},
+		"ls_txt_adls2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_txt_adls2'"
+		},
+		"ADLS_SQL_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://migrstorage.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://vpdemostorage1.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://vpdemostorage1.dfs.core.windows.net/"
+		},
+		"DS_LKUP_MAX_VALUE_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-T388H18U"
+		},
+		"DS_LKUP_MAX_VALUE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"DS_LKUP_MAX_VALUE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"DS_SQL_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://migrstorage.dfs.core.windows.net/"
+		},
+		"DS_sqlTable_parquet1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-T388H18U"
+		},
+		"DS_sqlTable_parquet1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"DS_sqlTable_parquet1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"LS_ONPrem_SqlServer_DW_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-T388H18U"
+		},
+		"LS_ONPrem_SqlServer_DW_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_ONPrem_SqlServer_DW_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"LS_SQLLKUP_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-T388H18U"
+		},
+		"LS_SQLLKUP_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_SQLLKUP_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-T388H18U"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"ls_txt_adls2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://vpdemostorage1.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "vpdemoADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS_SQL_PARQUET_accountKey": {
+						"value": "[parameters('ADLS_SQL_PARQUET_accountKey')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"AzureBlobStorage3_connectionString": {
+						"value": "[parameters('AzureBlobStorage3_connectionString')]"
+					},
+					"AzureBlobStorage4_connectionString": {
+						"value": "[parameters('AzureBlobStorage4_connectionString')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"DS_SQL_PARQUET_accountKey": {
+						"value": "[parameters('DS_SQL_PARQUET_accountKey')]"
+					},
+					"ls_txt_adls_connectionString": {
+						"value": "[parameters('ls_txt_adls_connectionString')]"
+					},
+					"ls_txt_adls2_accountKey": {
+						"value": "[parameters('ls_txt_adls2_accountKey')]"
+					},
+					"DS_LKUP_MAX_VALUE_password": {
+						"value": "[parameters('DS_LKUP_MAX_VALUE_password')]"
+					},
+					"DS_sqlTable_parquet1_password": {
+						"value": "[parameters('DS_sqlTable_parquet1_password')]"
+					},
+					"LS_ONPrem_SqlServer_DW_password": {
+						"value": "[parameters('LS_ONPrem_SqlServer_DW_password')]"
+					},
+					"LS_SQLLKUP_password": {
+						"value": "[parameters('LS_SQLLKUP_password')]"
+					},
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
+					},
+					"ADLS_SQL_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_SQL_PARQUET_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"DS_SQL_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('DS_SQL_PARQUET_properties_typeProperties_url')]"
+					},
+					"ls_txt_adls2_properties_typeProperties_url": {
+						"value": "[parameters('ls_txt_adls2_properties_typeProperties_url')]"
+					},
+					"DS_LKUP_MAX_VALUE_properties_typeProperties_server": {
+						"value": "[parameters('DS_LKUP_MAX_VALUE_properties_typeProperties_server')]"
+					},
+					"DS_LKUP_MAX_VALUE_properties_typeProperties_database": {
+						"value": "[parameters('DS_LKUP_MAX_VALUE_properties_typeProperties_database')]"
+					},
+					"DS_LKUP_MAX_VALUE_properties_typeProperties_userName": {
+						"value": "[parameters('DS_LKUP_MAX_VALUE_properties_typeProperties_userName')]"
+					},
+					"DS_sqlTable_parquet1_properties_typeProperties_server": {
+						"value": "[parameters('DS_sqlTable_parquet1_properties_typeProperties_server')]"
+					},
+					"DS_sqlTable_parquet1_properties_typeProperties_database": {
+						"value": "[parameters('DS_sqlTable_parquet1_properties_typeProperties_database')]"
+					},
+					"DS_sqlTable_parquet1_properties_typeProperties_userName": {
+						"value": "[parameters('DS_sqlTable_parquet1_properties_typeProperties_userName')]"
+					},
+					"LS_ONPrem_SqlServer_DW_properties_typeProperties_server": {
+						"value": "[parameters('LS_ONPrem_SqlServer_DW_properties_typeProperties_server')]"
+					},
+					"LS_ONPrem_SqlServer_DW_properties_typeProperties_database": {
+						"value": "[parameters('LS_ONPrem_SqlServer_DW_properties_typeProperties_database')]"
+					},
+					"LS_ONPrem_SqlServer_DW_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ONPrem_SqlServer_DW_properties_typeProperties_userName')]"
+					},
+					"LS_SQLLKUP_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLLKUP_properties_typeProperties_server')]"
+					},
+					"LS_SQLLKUP_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLLKUP_properties_typeProperties_database')]"
+					},
+					"LS_SQLLKUP_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLLKUP_properties_typeProperties_userName')]"
+					},
+					"SqlServer1_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_server')]"
+					},
+					"SqlServer1_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_database')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "vpdemoADF_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'vpdemoADF_ArmTemplate_0')]"
+			]
+		}
+	]
+}
