@@ -29,11 +29,17 @@
 							"type": "String"
 						},
 						"TableSchema": {
-							"value": "@pipeline().parameters.TableSchema",
+							"value": {
+								"value": "@pipeline().parameters.TableSchema",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"WatermarkColumn": {
-							"value": "@pipeline().parameters.WatermarkColumn",
+							"value": {
+								"value": "@pipeline().parameters.WatermarkColumn",
+								"type": "Expression"
+							},
 							"type": "String"
 						}
 					}
@@ -52,6 +58,9 @@
 				"type": "string"
 			},
 			"WatermarkColumn": {
+				"type": "string"
+			},
+			"LastLoadValue": {
 				"type": "string"
 			}
 		},
